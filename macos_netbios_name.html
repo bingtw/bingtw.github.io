@@ -1,0 +1,16 @@
+# Read / Write NetBIOS Name on MacOS
+
+## Read
+```bash
+defaults read /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName
+```
+
+## Write
+```bash
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName $(scutil --get LocalHostName)
+```
+
+
+## Reference
+  - https://community.spiceworks.com/topic/396822-how-to-query-mac-osx-for-netbios-name
+  - https://www.tech-otaku.com/networking/using-terminal-find-your-macs-network-name/
