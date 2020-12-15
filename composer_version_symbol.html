@@ -1,0 +1,33 @@
+* Reference: https://getcomposer.org/doc/articles/versions.md
+
+* "~" Tilde Version Range
+** using ~ specifies a minimum version, but allows the last digit specified to go up.
+** "~1.2" = ">=1.2  <2.0.0"
+** "~1.2.3" = ">=1.2.3  <1.3.0"
+
+* "^" Caret Version Range
+** will always allow non-breaking updates
+** "^1.2.3" = ">=1.2.3  <2.0.0"
+** "^0.3" = ">=0.3.0  <0.4.0"
+
+* Example
+```json
+"require": {
+    "vendor/package": "1.3.2", // exactly 1.3.2
+
+    // >, <, >=, <= | specify upper / lower bounds
+    "vendor/package": ">=1.3.2", // anything above or equal to 1.3.2
+    "vendor/package": "<1.3.2", // anything below 1.3.2
+
+    // * | wildcard
+    "vendor/package": "1.3.*", // >=1.3.0 <1.4.0
+
+    // ~ | allows last digit specified to go up
+    "vendor/package": "~1.3.2", // >=1.3.2 <1.4.0
+    "vendor/package": "~1.3", // >=1.3.0 <2.0.0
+
+    // ^ | doesn't allow breaking changes (major version fixed - following semver)
+    "vendor/package": "^1.3.2", // >=1.3.2 <2.0.0
+    "vendor/package": "^0.3.2", // >=0.3.2 <0.4.0 // except if major version is 0
+}
+```
